@@ -1,0 +1,51 @@
+version: "3.7"
+services:
+    db:
+        image: postgres:latest
+        container_name: db
+        restart: unless-stopped
+        environment:
+            POSTGRES_DATABASE: postrgres
+            POSTGRES_ROOT_PASSWORD: postrgres
+            POSTGRES_PASSWORD: postrgres
+            POSTGRES_USER: postgres
+            SERVICE_TAGS: dev
+            SERVICE_NAME: db
+        ports:
+            -  "5434:5432"
+        networks:
+            - laravel
+
+    app:
+        build:
+            args:
+                user: "${USER}"
+                uid: "${UID}"
+            context: ./
+            dockerfile: Dockerfile
+        image: laravel
+        container_name: api
+        restart: unless-stopped
+        working_dir: /var/www
+        volumes:
+            - ./:/var/www
+        networks:
+            - laravel
+        depends_on:
+            - db
+
+    nginx:
+        image: nginx:alpine
+        container_name: nginx
+        restart: unless-stopped
+        ports:
+            - "4000:80"
+        volumes:
+            - ./:/var/www
+            - ./docker-compose/nginx:/etc/nginx/conf.d
+        networks:
+            - laravel
+
+networks:
+    laravel:
+        driver: bridge
