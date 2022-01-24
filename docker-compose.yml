@@ -5,9 +5,9 @@ services:
         container_name: db
         restart: unless-stopped
         environment:
-            POSTGRES_DATABASE: postrgres
-            POSTGRES_ROOT_PASSWORD: postrgres
-            POSTGRES_PASSWORD: postrgres
+            POSTGRES_DATABASE: postgres
+            POSTGRES_ROOT_PASSWORD: postgres
+            POSTGRES_PASSWORD: postgres
             POSTGRES_USER: postgres
             SERVICE_TAGS: dev
             SERVICE_NAME: db
