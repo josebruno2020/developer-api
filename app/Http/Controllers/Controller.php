@@ -15,7 +15,9 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    protected function sendMessage(string $message, array|JsonResource $content, int $code = Response::HTTP_OK): JsonResponse
+    protected function sendMessage(string $message,
+                                   array|JsonResource $content = null,
+                                   int $code = Response::HTTP_OK): JsonResponse
     {
         return response()->json(['message' => $message, 'content' => $content], $code);
     }

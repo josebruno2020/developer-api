@@ -3,7 +3,9 @@
 namespace Services;
 
 use App\Exceptions\InfraException;
+use App\Exceptions\UuidException;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Str;
 use Infra\DeveloperRepository;
 use stdClass;
 
@@ -26,5 +28,35 @@ class DeveloperService
     public function createDeveloper(array $data): stdClass
     {
         return $this->developerRepository->createNewDeveloper(developerModel: $data);
+    }
+
+    /**
+     * @throws UuidException
+     * @throws InfraException
+     */
+    public function updateDeveloper(string $id, array $data): stdClass
+    {
+        if(!Str::isUuid($id)) throw new UuidException();
+        return $this->developerRepository->updateDeveloperById(id: $id, developerModel: $data);
+    }
+
+    /**
+     * @throws InfraException
+     * @throws UuidException
+     */
+    public function showDeveloper(string $id): stdClass
+    {
+        if(!Str::isUuid($id)) throw new UuidException();
+        return  $this->developerRepository->getDeveloperById($id);
+    }
+
+    /**
+     * @throws UuidException
+     * @throws InfraException
+     */
+    public function deleteDeveloper(string $id): bool
+    {
+        if(!Str::isUuid($id)) throw new UuidException();
+        return $this->developerRepository->deleteDeveloperById($id);
     }
 }

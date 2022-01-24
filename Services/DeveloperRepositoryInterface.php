@@ -9,4 +9,9 @@ interface DeveloperRepositoryInterface
 {
     public function getAllDevelopers(): Collection;
     public function createNewDeveloper(array $developerModel): stdClass;
+    public function updateDeveloperById(string $id, array $developerModel): stdClass;
+
+    public function getDeveloperById(string $id): stdClass;
+
+    public function deleteDeveloperById(string $id): bool;
 }
