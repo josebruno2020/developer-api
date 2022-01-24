@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Exceptions\InfraException;
 use App\Exceptions\UuidException;
 use App\Http\Requests\CreateDeveloperRequest;
+use App\Http\Requests\FilterDeveloperRequest;
 use App\Http\Requests\UpdateDeveloperRequest;
 use App\Http\Resources\DeveloperResource;
 use GuzzleHttp\Exception\ServerException;
@@ -20,15 +21,27 @@ class DeveloperController extends Controller
     }
 
     /**
+     * @param FilterDeveloperRequest $request
      * @return JsonResponse
      */
-    public function index(): JsonResponse
+    public function index(FilterDeveloperRequest $request): JsonResponse
     {
         try {
-            $developers = $this->developerService->getAllDevelopers();
-            return $this->sendMessage(
+            $filters = $request->validated();
+            $developers = count($filters) == 0 ? $this->developerService->getAllDevelopers() :
+                $this->developerService->getFilteredDevelopers(filters: $filters);
+
+            return count($filters) == 0 ? $this->sendMessage(
                 message: 'Developers has been found',
                 content: $developers->toArray()
+            ) :
+            response()->json(
+                [
+                    'message' => 'Developers has been found',
+                    'total' => $developers['total'],
+                    'nextPageUrl' => $developers['next_page_url'],
+                    'content' => $developers['data']
+                ]
             );
         } catch (\Exception $e) {
             return $this->sendError($e->getMessage());

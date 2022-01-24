@@ -22,6 +22,14 @@ class DeveloperService
         return $this->developerRepository->getAllDevelopers();
     }
 
+    public function getFilteredDevelopers(array $filters): Collection
+    {
+        return $this->developerRepository->getDevelopersByFiltersAndPage(
+            filters: $filters,
+            pageNumber: $filters['page'] ?? 1
+        );
+    }
+
     /**
      * @throws InfraException
      */

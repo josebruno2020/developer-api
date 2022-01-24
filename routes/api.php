@@ -20,6 +20,4 @@ Route::group(['prefix' => 'developers'], function () {
     Route::get('{id}', [DeveloperController::class, 'show']);
     Route::put('{id}', [DeveloperController::class, 'update']);
     Route::delete('{id}', [DeveloperController::class, 'delete']);
-
-
 });

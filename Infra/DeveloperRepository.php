@@ -6,12 +6,44 @@ namespace Infra;
 use App\Exceptions\InfraException;
 use App\Models\Developer;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Services\DeveloperRepositoryInterface;
 use stdClass;
 
 class DeveloperRepository implements DeveloperRepositoryInterface
 {
+    public function getDevelopersByFiltersAndPage(array $filters, int $pageNumber = 1): Collection
+    {
+        $developers = Developer::query();
+
+        if (array_key_exists('name', $filters)) {
+            $developers->where(DB::raw('UPPER(name)'), 'like', mb_strtoupper("%$filters[name]%"));
+        }
+
+        if (array_key_exists('sex', $filters)) {
+            $developers->where('sex', "$filters[sex]");
+        }
+
+        if (array_key_exists('age', $filters)) {
+            $developers->where('age', "$filters[age]");
+        }
+
+        if (array_key_exists('birthdate', $filters)) {
+            $developers->where('birthdate', 'like', "%$filters[birthdate]%");
+        }
+
+        if (array_key_exists('hobby', $filters)) {
+            $developers->where(DB::raw('UPPER(hobby)'), 'like', mb_strtoupper("%$filters[hobby]%"));
+        }
+
+        $data = $developers->paginate(
+            perPage: 10,
+            page: $pageNumber
+        );
+
+        return new Collection($data);
+    }
 
     /**
      * @throws InfraException
@@ -26,14 +58,12 @@ class DeveloperRepository implements DeveloperRepositoryInterface
             Log::info($e->getMessage());
             throw new InfraException("Error in creating developer: ".$e->getMessage());
         }
-
     }
 
 
     public function getAllDevelopers(): Collection
     {
-        $developers = Developer::query()->get();
-        return new Collection($developers);
+        return Developer::query()->get();
     }
 
     /**
