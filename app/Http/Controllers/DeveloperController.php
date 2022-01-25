@@ -8,6 +8,7 @@ use App\Http\Requests\CreateDeveloperRequest;
 use App\Http\Requests\FilterDeveloperRequest;
 use App\Http\Requests\UpdateDeveloperRequest;
 use App\Http\Resources\DeveloperResource;
+use Exception;
 use Illuminate\Http\JsonResponse;
 use Services\DeveloperService;
 
@@ -42,7 +43,7 @@ class DeveloperController extends Controller
                     'content' => $developers['data']
                 ]
             );
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             return $this->sendError($e->getMessage());
         }
     }
@@ -55,10 +56,10 @@ class DeveloperController extends Controller
     {
         try {
             $data = $request->validated();
-            $result = $this->developerService->createDeveloper($data);
+            $developer = $this->developerService->createDeveloper($data);
             return $this->sendMessage(
                 message: __('controller.developers.create'),
-                content: DeveloperResource::make($result)
+                content: DeveloperResource::make($developer)
             );
         } catch (InfraException $e) {
             return $this->sendError($e->getMessage(), $e->getCode());
@@ -109,8 +110,8 @@ class DeveloperController extends Controller
     public function delete(string $id): JsonResponse
     {
         try {
-            $developer = $this->developerService->deleteDeveloper($id);
-            $message = $developer ? __('controller.developers.delete-success') : __('controller.developers.delete-error');
+            $result = $this->developerService->deleteDeveloper($id);
+            $message = $result ? __('controller.developers.delete-success') : __('controller.developers.delete-error');
             return $this->sendMessage(
                 message: $message
             );
