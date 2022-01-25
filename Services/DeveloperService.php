@@ -44,7 +44,7 @@ class DeveloperService
      */
     public function updateDeveloper(string $id, array $data): stdClass
     {
-        if(!Str::isUuid($id)) throw new UuidException();
+        $this->uuidValidation($id);
         return $this->developerRepository->updateDeveloperById(id: $id, developerModel: $data);
     }
 
@@ -54,7 +54,7 @@ class DeveloperService
      */
     public function showDeveloper(string $id): stdClass
     {
-        if(!Str::isUuid($id)) throw new UuidException();
+        $this->uuidValidation($id);
         return  $this->developerRepository->getDeveloperById($id);
     }
 
@@ -64,7 +64,15 @@ class DeveloperService
      */
     public function deleteDeveloper(string $id): bool
     {
-        if(!Str::isUuid($id)) throw new UuidException();
+        $this->uuidValidation($id);
         return $this->developerRepository->deleteDeveloperById($id);
+    }
+
+    /**
+     * @throws UuidException
+     */
+    private function uuidValidation(string $id): void
+    {
+        if(!Str::isUuid($id)) throw new UuidException();
     }
 }

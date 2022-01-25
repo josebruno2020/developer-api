@@ -8,7 +8,6 @@ use App\Http\Requests\CreateDeveloperRequest;
 use App\Http\Requests\FilterDeveloperRequest;
 use App\Http\Requests\UpdateDeveloperRequest;
 use App\Http\Resources\DeveloperResource;
-use GuzzleHttp\Exception\ServerException;
 use Illuminate\Http\JsonResponse;
 use Services\DeveloperService;
 
@@ -32,12 +31,12 @@ class DeveloperController extends Controller
                 $this->developerService->getFilteredDevelopers(filters: $filters);
 
             return count($filters) == 0 ? $this->sendMessage(
-                message: 'Developers has been found',
+                message: __('controller.developers.index'),
                 content: $developers->toArray()
             ) :
             response()->json(
                 [
-                    'message' => 'Developers has been found',
+                    'message' =>  __('controller.developers.index'),
                     'total' => $developers['total'],
                     'nextPageUrl' => $developers['next_page_url'],
                     'content' => $developers['data']
@@ -58,7 +57,7 @@ class DeveloperController extends Controller
             $data = $request->validated();
             $result = $this->developerService->createDeveloper($data);
             return $this->sendMessage(
-                message: 'Developer has been created',
+                message: __('controller.developers.create'),
                 content: DeveloperResource::make($result)
             );
         } catch (InfraException $e) {
@@ -77,7 +76,7 @@ class DeveloperController extends Controller
             $data = $request->validated();
             $developer = $this->developerService->updateDeveloper($id, $data);
             return $this->sendMessage(
-                message: 'Developer has been updated',
+                message: __('controller.developers.update'),
                 content: DeveloperResource::make($developer)
             );
         } catch (InfraException|UuidException $e) {
@@ -95,7 +94,7 @@ class DeveloperController extends Controller
         try {
             $developer = $this->developerService->showDeveloper($id);
             return $this->sendMessage(
-                message: 'Developer has been found',
+                message: __('controller.developers.show'),
                 content: DeveloperResource::make($developer)
             );
         } catch (InfraException|UuidException $e) {
@@ -111,7 +110,7 @@ class DeveloperController extends Controller
     {
         try {
             $developer = $this->developerService->deleteDeveloper($id);
-            $message = $developer ? 'Developer has been deleted' : 'Developer has not been deleted';
+            $message = $developer ? __('controller.developers.delete-success') : __('controller.developers.delete-error');
             return $this->sendMessage(
                 message: $message
             );
