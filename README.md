@@ -21,7 +21,7 @@ cp .env.example .env && docker-compose build && docker-compose up -d
 
 Este passo pode demorar um pouquinho até que tudo seja configurado.
 
-OBS: por padrão estou usando a porta 4000 da máquina e a 5434 para o banco de dados. Certifique-se que estejam livres ou mude no arquivo `docker-compose.yml`
+OBS: por padrão estou usando a porta `4000` para o php e a `5434` para o banco de dados. Certifique-se que estejam livres ou mude no arquivo `docker-compose.yml`
 
 
 ## Intalando pacotes, rodando migrations e configurando laravel
