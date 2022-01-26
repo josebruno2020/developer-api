@@ -1,0 +1,312 @@
+{
+    "variable": [
+        {
+            "id": "baseUrl",
+            "key": "baseUrl",
+            "type": "string",
+            "name": "string",
+            "value": "http:\/\/localhost:4000\/"
+        }
+    ],
+    "info": {
+        "name": "Developers API",
+        "_postman_id": "e705d86f-885e-4ab2-8ee4-cd39ebb03751",
+        "description": "",
+        "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
+    },
+    "item": [
+        {
+            "name": "Developer",
+            "description": "\nDeveloper's endpoints.",
+            "item": [
+                {
+                    "name": "List all developers or by filters.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/developers",
+                            "query": [
+                                {
+                                    "key": "name",
+                                    "value": "",
+                                    "description": "",
+                                    "disabled": true
+                                },
+                                {
+                                    "key": "sex",
+                                    "value": "F",
+                                    "description": "Must be one of M or F.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "age",
+                                    "value": "345.2",
+                                    "description": "",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "hobby",
+                                    "value": "",
+                                    "description": "",
+                                    "disabled": true
+                                },
+                                {
+                                    "key": "birthdate",
+                                    "value": "",
+                                    "description": "",
+                                    "disabled": true
+                                },
+                                {
+                                    "key": "page",
+                                    "value": "33092.669",
+                                    "description": "",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "{{baseUrl}}\/api\/developers?name=&sex=F&age=345.2&hobby=&birthdate=&page=33092.669"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"message\": \"Developers has been found\",\n    \"content\": [\n        {\n            \"id\": \"f598a6de-2add-4755-82fc-bf5fd59f897c\",\n            \"name\": \"Mariana Sampaio\",\n            \"sex\": \"F\",\n            \"age\": 23,\n            \"hobby\": \"jogos de tabuleiro\",\n            \"birthdate\": \"1996-01-01\",\n            \"deleted_at\": null,\n            \"created_at\": \"2022-01-24T23:47:25.000000Z\",\n            \"updated_at\": \"2022-01-24T23:47:25.000000Z\"\n        },\n        {\n            \"id\": \"fabe53f6-6cb8-4da3-881a-a9a320fcef0e\",\n            \"name\": \"Jose 2\",\n            \"sex\": \"M\",\n            \"age\": 20,\n            \"hobby\": \"jogos eletronicos\",\n            \"birthdate\": \"2002-01-01\",\n            \"deleted_at\": null,\n            \"created_at\": \"2022-01-24T23:52:00.000000Z\",\n            \"updated_at\": \"2022-01-24T23:52:00.000000Z\"\n        },\n        {\n            \"id\": \"b9ecfe9a-1a2a-4b59-892e-c32f2669eab6\",\n            \"name\": \"Jose 2\",\n            \"sex\": \"M\",\n            \"age\": 20,\n            \"hobby\": \"jogos eletronicos\",\n            \"birthdate\": \"2002-01-01\",\n            \"deleted_at\": null,\n            \"created_at\": \"2022-01-24T23:52:14.000000Z\",\n            \"updated_at\": \"2022-01-24T23:52:14.000000Z\"\n        },\n        {\n            \"id\": \"a95302f3-30ff-46bc-a835-559e47ecd470\",\n            \"name\": \"Jose 2\",\n            \"sex\": \"M\",\n            \"age\": 20,\n            \"hobby\": \"jogos eletronicos\",\n            \"birthdate\": \"2002-01-01\",\n            \"deleted_at\": null,\n            \"created_at\": \"2022-01-24T23:52:15.000000Z\",\n            \"updated_at\": \"2022-01-24T23:52:15.000000Z\"\n        },\n        {\n            \"id\": \"e54fe6bd-55f6-4daf-b24d-833538657222\",\n            \"name\": \"Jose 2\",\n            \"sex\": \"M\",\n            \"age\": 20,\n            \"hobby\": \"jogos eletronicos\",\n            \"birthdate\": \"2002-01-01\",\n            \"deleted_at\": null,\n            \"created_at\": \"2022-01-24T23:52:16.000000Z\",\n            \"updated_at\": \"2022-01-24T23:52:16.000000Z\"\n        },\n        {\n            \"id\": \"aa1ab60e-b9fd-40c6-b89b-06e231514e50\",\n            \"name\": \"Jose 2\",\n            \"sex\": \"M\",\n            \"age\": 20,\n            \"hobby\": \"jogos eletronicos\",\n            \"birthdate\": \"2002-01-01\",\n            \"deleted_at\": null,\n            \"created_at\": \"2022-01-24T23:52:16.000000Z\",\n            \"updated_at\": \"2022-01-24T23:52:16.000000Z\"\n        },\n        {\n            \"id\": \"cf03ead2-de18-42fc-8207-8cc11336231b\",\n            \"name\": \"Jose 2\",\n            \"sex\": \"M\",\n            \"age\": 20,\n            \"hobby\": \"jogos eletronicos\",\n            \"birthdate\": \"2002-01-01\",\n            \"deleted_at\": null,\n            \"created_at\": \"2022-01-24T23:52:17.000000Z\",\n            \"updated_at\": \"2022-01-24T23:52:17.000000Z\"\n        },\n        {\n            \"id\": \"37800a26-bf51-4058-b88e-0b26a236cf01\",\n            \"name\": \"Jose 2\",\n            \"sex\": \"M\",\n            \"age\": 20,\n            \"hobby\": \"jogos eletronicos\",\n            \"birthdate\": \"2002-01-01\",\n            \"deleted_at\": null,\n            \"created_at\": \"2022-01-24T23:52:17.000000Z\",\n            \"updated_at\": \"2022-01-24T23:52:17.000000Z\"\n        },\n        {\n            \"id\": \"0a9d23f3-d1e8-45b2-a0ab-a7d607152d65\",\n            \"name\": \"Jose 2\",\n            \"sex\": \"M\",\n            \"age\": 20,\n            \"hobby\": \"jogos eletronicos\",\n            \"birthdate\": \"2002-01-01\",\n            \"deleted_at\": null,\n            \"created_at\": \"2022-01-24T23:52:18.000000Z\",\n            \"updated_at\": \"2022-01-24T23:52:18.000000Z\"\n        },\n        {\n            \"id\": \"59d6aee5-412e-42c0-8a2d-f4a7e0eae4f3\",\n            \"name\": \"Jose Bruno\",\n            \"sex\": \"M\",\n            \"age\": 25,\n            \"hobby\": \"Jogos\",\n            \"birthdate\": \"2022-01-03\",\n            \"deleted_at\": null,\n            \"created_at\": \"2022-01-26T01:30:46.000000Z\",\n            \"updated_at\": \"2022-01-26T01:30:46.000000Z\"\n        },\n        {\n            \"id\": \"34e88aa7-d7de-4b0a-aa71-1fdac04afe19\",\n            \"name\": \"JOSE\",\n            \"sex\": \"M\",\n            \"age\": 74,\n            \"hobby\": \"MORTE\",\n            \"birthdate\": \"2022-01-11\",\n            \"deleted_at\": null,\n            \"created_at\": \"2022-01-26T01:32:38.000000Z\",\n            \"updated_at\": \"2022-01-26T01:32:38.000000Z\"\n        },\n        {\n            \"id\": \"0b42bfc3-ed0e-4021-9e24-4e7c46244eb0\",\n            \"name\": \"MARIANA\",\n            \"sex\": \"F\",\n            \"age\": 25,\n            \"hobby\": \"SER LINDA\",\n            \"birthdate\": \"2022-01-03\",\n            \"deleted_at\": null,\n            \"created_at\": \"2022-01-26T01:36:51.000000Z\",\n            \"updated_at\": \"2022-01-26T01:36:51.000000Z\"\n        },\n        {\n            \"id\": \"b0097d39-55cc-4dd2-8136-4316f214b0fb\",\n            \"name\": \"MARI\",\n            \"sex\": \"F\",\n            \"age\": 58,\n            \"hobby\": \"HOBBY\",\n            \"birthdate\": \"2010-01-05\",\n            \"deleted_at\": null,\n            \"created_at\": \"2022-01-26T01:38:04.000000Z\",\n            \"updated_at\": \"2022-01-26T01:38:04.000000Z\"\n        }\n    ]\n}\n",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"message\": \"Developers has been found\",\n    \"total\": 10,\n    \"nextPageUrl\": null,\n    \"content\": [\n        {\n            \"id\": \"fabe53f6-6cb8-4da3-881a-a9a320fcef0e\",\n            \"name\": \"Jose 2\",\n            \"sex\": \"M\",\n            \"age\": 20,\n            \"hobby\": \"jogos eletronicos\",\n            \"birthdate\": \"2002-01-01\",\n            \"deleted_at\": null,\n            \"created_at\": \"2022-01-24T23:52:00.000000Z\",\n            \"updated_at\": \"2022-01-24T23:52:00.000000Z\"\n        },\n        {\n            \"id\": \"b9ecfe9a-1a2a-4b59-892e-c32f2669eab6\",\n            \"name\": \"Jose 2\",\n            \"sex\": \"M\",\n            \"age\": 20,\n            \"hobby\": \"jogos eletronicos\",\n            \"birthdate\": \"2002-01-01\",\n            \"deleted_at\": null,\n            \"created_at\": \"2022-01-24T23:52:14.000000Z\",\n            \"updated_at\": \"2022-01-24T23:52:14.000000Z\"\n        },\n        {\n            \"id\": \"a95302f3-30ff-46bc-a835-559e47ecd470\",\n            \"name\": \"Jose 2\",\n            \"sex\": \"M\",\n            \"age\": 20,\n            \"hobby\": \"jogos eletronicos\",\n            \"birthdate\": \"2002-01-01\",\n            \"deleted_at\": null,\n            \"created_at\": \"2022-01-24T23:52:15.000000Z\",\n            \"updated_at\": \"2022-01-24T23:52:15.000000Z\"\n        },\n        {\n            \"id\": \"e54fe6bd-55f6-4daf-b24d-833538657222\",\n            \"name\": \"Jose 2\",\n            \"sex\": \"M\",\n            \"age\": 20,\n            \"hobby\": \"jogos eletronicos\",\n            \"birthdate\": \"2002-01-01\",\n            \"deleted_at\": null,\n            \"created_at\": \"2022-01-24T23:52:16.000000Z\",\n            \"updated_at\": \"2022-01-24T23:52:16.000000Z\"\n        },\n        {\n            \"id\": \"aa1ab60e-b9fd-40c6-b89b-06e231514e50\",\n            \"name\": \"Jose 2\",\n            \"sex\": \"M\",\n            \"age\": 20,\n            \"hobby\": \"jogos eletronicos\",\n            \"birthdate\": \"2002-01-01\",\n            \"deleted_at\": null,\n            \"created_at\": \"2022-01-24T23:52:16.000000Z\",\n            \"updated_at\": \"2022-01-24T23:52:16.000000Z\"\n        },\n        {\n            \"id\": \"cf03ead2-de18-42fc-8207-8cc11336231b\",\n            \"name\": \"Jose 2\",\n            \"sex\": \"M\",\n            \"age\": 20,\n            \"hobby\": \"jogos eletronicos\",\n            \"birthdate\": \"2002-01-01\",\n            \"deleted_at\": null,\n            \"created_at\": \"2022-01-24T23:52:17.000000Z\",\n            \"updated_at\": \"2022-01-24T23:52:17.000000Z\"\n        },\n        {\n            \"id\": \"37800a26-bf51-4058-b88e-0b26a236cf01\",\n            \"name\": \"Jose 2\",\n            \"sex\": \"M\",\n            \"age\": 20,\n            \"hobby\": \"jogos eletronicos\",\n            \"birthdate\": \"2002-01-01\",\n            \"deleted_at\": null,\n            \"created_at\": \"2022-01-24T23:52:17.000000Z\",\n            \"updated_at\": \"2022-01-24T23:52:17.000000Z\"\n        },\n        {\n            \"id\": \"0a9d23f3-d1e8-45b2-a0ab-a7d607152d65\",\n            \"name\": \"Jose 2\",\n            \"sex\": \"M\",\n            \"age\": 20,\n            \"hobby\": \"jogos eletronicos\",\n            \"birthdate\": \"2002-01-01\",\n            \"deleted_at\": null,\n            \"created_at\": \"2022-01-24T23:52:18.000000Z\",\n            \"updated_at\": \"2022-01-24T23:52:18.000000Z\"\n        },\n        {\n            \"id\": \"59d6aee5-412e-42c0-8a2d-f4a7e0eae4f3\",\n            \"name\": \"Jose Bruno\",\n            \"sex\": \"M\",\n            \"age\": 25,\n            \"hobby\": \"Jogos\",\n            \"birthdate\": \"2022-01-03\",\n            \"deleted_at\": null,\n            \"created_at\": \"2022-01-26T01:30:46.000000Z\",\n            \"updated_at\": \"2022-01-26T01:30:46.000000Z\"\n        },\n        {\n            \"id\": \"34e88aa7-d7de-4b0a-aa71-1fdac04afe19\",\n            \"name\": \"JOSE\",\n            \"sex\": \"M\",\n            \"age\": 74,\n            \"hobby\": \"MORTE\",\n            \"birthdate\": \"2022-01-11\",\n            \"deleted_at\": null,\n            \"created_at\": \"2022-01-26T01:32:38.000000Z\",\n            \"updated_at\": \"2022-01-26T01:32:38.000000Z\"\n        }\n    ]\n}\n",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Create a developer.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/developers",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/developers"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"aut\",\"sex\":\"F\",\"age\":7515683.897,\"hobby\":\"dolorem\",\"birthdate\":\"2022-01-26T23:26:16\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"message\": \"Developer has been created\",\n    \"content\": {\n        \"id\": \"70d46289-c56e-480e-b24d-dbbf92d5ffa8\",\n        \"name\": \"Jose 2\",\n        \"sex\": \"M\",\n        \"age\": 20,\n        \"hobby\": \"jogos eletronicos\",\n        \"birthdate\": \"2002-01-01\"\n    }\n}\n",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Show a developer by id.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/developers\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/developers\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "adipisci",
+                                    "description": "The ID of the developer."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"message\": \"Developer has been found\",\n    \"content\": {\n        \"id\": \"fabe53f6-6cb8-4da3-881a-a9a320fcef0e\",\n        \"name\": \"Jose 2\",\n        \"sex\": \"M\",\n        \"age\": 20,\n        \"hobby\": \"jogos eletronicos\",\n        \"birthdate\": \"2002-01-01\"\n    }\n}\n",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n    \"error\": \"Developer not found\"\n}\n",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 400,
+                            "body": "{\n    \"error\": \"Uuid invalid\"\n}\n",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Update a developer by id.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/developers\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/developers\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "velit",
+                                    "description": "The ID of the developer."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"sex\":\"M\",\"age\":57930725.78,\"birthdate\":\"2022-01-26T23:26:16\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"message\": \"Developer has been updated\",\n    \"content\": {\n        \"id\": \"5977053a-5db7-47bf-99b9-0aeb37dda72f\",\n        \"name\": \"Jos\u00e9 Bruno EDITADO\",\n        \"sex\": \"M\",\n        \"age\": 20,\n        \"hobby\": \"jogos eletronicos\",\n        \"birthdate\": \"2021-04-10\"\n    }\n}\n",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n    \"error\": \"Developer not found\"\n}\n",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 400,
+                            "body": "{\n    \"error\": \"Uuid invalid\"\n}\n",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Create a developer by id.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/developers\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/developers\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "delectus",
+                                    "description": "The ID of the developer."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"message\": \"Developer has been deleted\",\n    \"content\": true\n}\n",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n    \"error\": \"Developer not found\"\n}\n",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 400,
+                            "body": "{\n    \"error\": \"Uuid invalid\"\n}\n",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "auth": {
+        "type": "noauth"
+    }
+}

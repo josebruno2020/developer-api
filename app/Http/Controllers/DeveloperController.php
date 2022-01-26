@@ -12,6 +12,11 @@ use Exception;
 use Illuminate\Http\JsonResponse;
 use Services\DeveloperService;
 
+/**
+ * @group Developer
+ *
+ * Developer's endpoints.
+ */
 class DeveloperController extends Controller
 {
     private DeveloperService $developerService;
@@ -21,8 +26,9 @@ class DeveloperController extends Controller
     }
 
     /**
-     * @param FilterDeveloperRequest $request
-     * @return JsonResponse
+     * List all developers or by filters.
+     * @responseFile responses/developer/index.json
+     * @responseFile responses/developer/filter.json
      */
     public function index(FilterDeveloperRequest $request): JsonResponse
     {
@@ -49,8 +55,8 @@ class DeveloperController extends Controller
     }
 
     /**
-     * @param CreateDeveloperRequest $request
-     * @return JsonResponse
+     * Create a developer.
+     * @responseFile responses/developer/create.json
      */
     public function create(CreateDeveloperRequest $request): JsonResponse
     {
@@ -67,9 +73,10 @@ class DeveloperController extends Controller
     }
 
     /**
-     * @param string $id
-     * @param UpdateDeveloperRequest $request
-     * @return JsonResponse
+     * Update a developer by id.
+     * @responseFile responses/developer/update.json
+     * @responseFile 404 responses/developer/not-found.json
+     * @responseFile 400 responses/developer/uuid-invalid.json
      */
     public function update(string $id, UpdateDeveloperRequest $request): JsonResponse
     {
@@ -83,12 +90,13 @@ class DeveloperController extends Controller
         } catch (InfraException|UuidException $e) {
             return $this->sendError($e->getMessage(), $e->getCode());
         }
-
     }
 
     /**
-     * @param string $id
-     * @return JsonResponse
+     * Show a developer by id.
+     * @responseFile responses/developer/show.json
+     * @responseFile 404 responses/developer/not-found.json
+     * @responseFile 400 responses/developer/uuid-invalid.json
      */
     public function show(string $id): JsonResponse
     {
@@ -104,8 +112,10 @@ class DeveloperController extends Controller
     }
 
     /**
-     * @param string $id
-     * @return JsonResponse
+     * Create a developer by id.
+     * @responseFile responses/developer/delete.json
+     * @responseFile 404 responses/developer/not-found.json
+     * @responseFile 400 responses/developer/uuid-invalid.json
      */
     public function delete(string $id): JsonResponse
     {

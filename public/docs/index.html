@@ -1,0 +1,1155 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Developers API</title>
+
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../docs/css/theme-default.style.css" media="screen">
+    <link rel="stylesheet" href="../docs/css/theme-default.print.css" media="print">
+
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js"></script>
+
+    <link rel="stylesheet"
+          href="https://unpkg.com/@highlightjs/cdn-assets@10.7.2/styles/obsidian.min.css">
+    <script src="https://unpkg.com/@highlightjs/cdn-assets@10.7.2/highlight.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jets/0.14.1/jets.min.js"></script>
+
+    <style id="language-style">
+        /* starts out as display none and is replaced with js later  */
+                    body .content .bash-example code { display: none; }
+                    body .content .javascript-example code { display: none; }
+            </style>
+
+    <script>
+        var baseUrl = "http://localhost:4000/";
+        var useCsrf = Boolean();
+        var csrfUrl = "/sanctum/csrf-cookie";
+    </script>
+    <script src="../docs/js/tryitout-3.22.0.js"></script>
+
+    <script src="../docs/js/theme-default-3.22.0.js"></script>
+
+</head>
+
+<body data-languages="[&quot;bash&quot;,&quot;javascript&quot;]">
+
+<a href="#" id="nav-button">
+    <span>
+        MENU
+        <img src="../docs/images/navbar.png" alt="navbar-image" />
+    </span>
+</a>
+<div class="tocify-wrapper">
+    
+            <div class="lang-selector">
+                                            <button type="button" class="lang-button" data-language-name="bash">bash</button>
+                                            <button type="button" class="lang-button" data-language-name="javascript">javascript</button>
+                    </div>
+    
+    <div class="search">
+        <input type="text" class="search" id="input-search" placeholder="Search">
+    </div>
+
+    <div id="toc">
+                                                                            <ul id="tocify-header-0" class="tocify-header">
+                    <li class="tocify-item level-1" data-unique="introduction">
+                        <a href="#introduction">Introduction</a>
+                    </li>
+                                            
+                                                                    </ul>
+                                                <ul id="tocify-header-1" class="tocify-header">
+                    <li class="tocify-item level-1" data-unique="authenticating-requests">
+                        <a href="#authenticating-requests">Authenticating requests</a>
+                    </li>
+                                            
+                                                </ul>
+                    
+                    <ul id="tocify-header-2" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="developer">
+                    <a href="#developer">Developer</a>
+                </li>
+                                    <ul id="tocify-subheader-developer" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="developer-GETapi-developers">
+                        <a href="#developer-GETapi-developers">List all developers or by filters.</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="developer-POSTapi-developers">
+                        <a href="#developer-POSTapi-developers">Create a developer.</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="developer-GETapi-developers--id-">
+                        <a href="#developer-GETapi-developers--id-">Show a developer by id.</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="developer-PUTapi-developers--id-">
+                        <a href="#developer-PUTapi-developers--id-">Update a developer by id.</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="developer-DELETEapi-developers--id-">
+                        <a href="#developer-DELETEapi-developers--id-">Create a developer by id.</a>
+                    </li>
+                                                    </ul>
+                            </ul>
+        
+                        
+            </div>
+
+            <ul class="toc-footer" id="toc-footer">
+                            <li><a href="../docs/collection.json">View Postman collection</a></li>
+                            <li><a href="../docs/openapi.yaml">View OpenAPI spec</a></li>
+                            <li><a href="http://github.com/knuckleswtf/scribe">Documentation powered by Scribe ✍</a></li>
+                    </ul>
+        <ul class="toc-footer" id="last-updated">
+        <li>Last updated: January 26 2022</li>
+    </ul>
+</div>
+
+<div class="page-wrapper">
+    <div class="dark-box"></div>
+    <div class="content">
+        <h1 id="introduction">Introduction</h1>
+<p>This documentation aims to provide all the information you need to work with our API.</p>
+<aside>As you scroll, you'll see code examples for working with the API in different programming languages in the dark area to the right (or as part of the content on mobile).
+You can switch the language used with the tabs at the top right (or from the nav menu at the top left on mobile).</aside>
+<blockquote>
+<p>Base URL</p>
+</blockquote>
+<pre><code class="language-yaml">http://localhost:4000/</code></pre>
+
+        <h1 id="authenticating-requests">Authenticating requests</h1>
+<p>This API is not authenticated.</p>
+
+        <h1 id="developer">Developer</h1>
+
+    <p>Developer's endpoints.</p>
+
+            <h2 id="developer-GETapi-developers">List all developers or by filters.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-developers">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:4000/api/developers?sex=F&amp;age=345.2&amp;page=33092.669" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:4000/api/developers"
+);
+
+const params = {
+    "sex": "F",
+    "age": "345.2",
+    "page": "33092.669",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-developers">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;Developers has been found&quot;,
+    &quot;content&quot;: [
+        {
+            &quot;id&quot;: &quot;f598a6de-2add-4755-82fc-bf5fd59f897c&quot;,
+            &quot;name&quot;: &quot;Mariana Sampaio&quot;,
+            &quot;sex&quot;: &quot;F&quot;,
+            &quot;age&quot;: 23,
+            &quot;hobby&quot;: &quot;jogos de tabuleiro&quot;,
+            &quot;birthdate&quot;: &quot;1996-01-01&quot;,
+            &quot;deleted_at&quot;: null,
+            &quot;created_at&quot;: &quot;2022-01-24T23:47:25.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-01-24T23:47:25.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: &quot;fabe53f6-6cb8-4da3-881a-a9a320fcef0e&quot;,
+            &quot;name&quot;: &quot;Jose 2&quot;,
+            &quot;sex&quot;: &quot;M&quot;,
+            &quot;age&quot;: 20,
+            &quot;hobby&quot;: &quot;jogos eletronicos&quot;,
+            &quot;birthdate&quot;: &quot;2002-01-01&quot;,
+            &quot;deleted_at&quot;: null,
+            &quot;created_at&quot;: &quot;2022-01-24T23:52:00.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-01-24T23:52:00.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: &quot;b9ecfe9a-1a2a-4b59-892e-c32f2669eab6&quot;,
+            &quot;name&quot;: &quot;Jose 2&quot;,
+            &quot;sex&quot;: &quot;M&quot;,
+            &quot;age&quot;: 20,
+            &quot;hobby&quot;: &quot;jogos eletronicos&quot;,
+            &quot;birthdate&quot;: &quot;2002-01-01&quot;,
+            &quot;deleted_at&quot;: null,
+            &quot;created_at&quot;: &quot;2022-01-24T23:52:14.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-01-24T23:52:14.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: &quot;a95302f3-30ff-46bc-a835-559e47ecd470&quot;,
+            &quot;name&quot;: &quot;Jose 2&quot;,
+            &quot;sex&quot;: &quot;M&quot;,
+            &quot;age&quot;: 20,
+            &quot;hobby&quot;: &quot;jogos eletronicos&quot;,
+            &quot;birthdate&quot;: &quot;2002-01-01&quot;,
+            &quot;deleted_at&quot;: null,
+            &quot;created_at&quot;: &quot;2022-01-24T23:52:15.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-01-24T23:52:15.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: &quot;e54fe6bd-55f6-4daf-b24d-833538657222&quot;,
+            &quot;name&quot;: &quot;Jose 2&quot;,
+            &quot;sex&quot;: &quot;M&quot;,
+            &quot;age&quot;: 20,
+            &quot;hobby&quot;: &quot;jogos eletronicos&quot;,
+            &quot;birthdate&quot;: &quot;2002-01-01&quot;,
+            &quot;deleted_at&quot;: null,
+            &quot;created_at&quot;: &quot;2022-01-24T23:52:16.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-01-24T23:52:16.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: &quot;aa1ab60e-b9fd-40c6-b89b-06e231514e50&quot;,
+            &quot;name&quot;: &quot;Jose 2&quot;,
+            &quot;sex&quot;: &quot;M&quot;,
+            &quot;age&quot;: 20,
+            &quot;hobby&quot;: &quot;jogos eletronicos&quot;,
+            &quot;birthdate&quot;: &quot;2002-01-01&quot;,
+            &quot;deleted_at&quot;: null,
+            &quot;created_at&quot;: &quot;2022-01-24T23:52:16.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-01-24T23:52:16.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: &quot;cf03ead2-de18-42fc-8207-8cc11336231b&quot;,
+            &quot;name&quot;: &quot;Jose 2&quot;,
+            &quot;sex&quot;: &quot;M&quot;,
+            &quot;age&quot;: 20,
+            &quot;hobby&quot;: &quot;jogos eletronicos&quot;,
+            &quot;birthdate&quot;: &quot;2002-01-01&quot;,
+            &quot;deleted_at&quot;: null,
+            &quot;created_at&quot;: &quot;2022-01-24T23:52:17.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-01-24T23:52:17.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: &quot;37800a26-bf51-4058-b88e-0b26a236cf01&quot;,
+            &quot;name&quot;: &quot;Jose 2&quot;,
+            &quot;sex&quot;: &quot;M&quot;,
+            &quot;age&quot;: 20,
+            &quot;hobby&quot;: &quot;jogos eletronicos&quot;,
+            &quot;birthdate&quot;: &quot;2002-01-01&quot;,
+            &quot;deleted_at&quot;: null,
+            &quot;created_at&quot;: &quot;2022-01-24T23:52:17.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-01-24T23:52:17.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: &quot;0a9d23f3-d1e8-45b2-a0ab-a7d607152d65&quot;,
+            &quot;name&quot;: &quot;Jose 2&quot;,
+            &quot;sex&quot;: &quot;M&quot;,
+            &quot;age&quot;: 20,
+            &quot;hobby&quot;: &quot;jogos eletronicos&quot;,
+            &quot;birthdate&quot;: &quot;2002-01-01&quot;,
+            &quot;deleted_at&quot;: null,
+            &quot;created_at&quot;: &quot;2022-01-24T23:52:18.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-01-24T23:52:18.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: &quot;59d6aee5-412e-42c0-8a2d-f4a7e0eae4f3&quot;,
+            &quot;name&quot;: &quot;Jose Bruno&quot;,
+            &quot;sex&quot;: &quot;M&quot;,
+            &quot;age&quot;: 25,
+            &quot;hobby&quot;: &quot;Jogos&quot;,
+            &quot;birthdate&quot;: &quot;2022-01-03&quot;,
+            &quot;deleted_at&quot;: null,
+            &quot;created_at&quot;: &quot;2022-01-26T01:30:46.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-01-26T01:30:46.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: &quot;34e88aa7-d7de-4b0a-aa71-1fdac04afe19&quot;,
+            &quot;name&quot;: &quot;JOSE&quot;,
+            &quot;sex&quot;: &quot;M&quot;,
+            &quot;age&quot;: 74,
+            &quot;hobby&quot;: &quot;MORTE&quot;,
+            &quot;birthdate&quot;: &quot;2022-01-11&quot;,
+            &quot;deleted_at&quot;: null,
+            &quot;created_at&quot;: &quot;2022-01-26T01:32:38.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-01-26T01:32:38.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: &quot;0b42bfc3-ed0e-4021-9e24-4e7c46244eb0&quot;,
+            &quot;name&quot;: &quot;MARIANA&quot;,
+            &quot;sex&quot;: &quot;F&quot;,
+            &quot;age&quot;: 25,
+            &quot;hobby&quot;: &quot;SER LINDA&quot;,
+            &quot;birthdate&quot;: &quot;2022-01-03&quot;,
+            &quot;deleted_at&quot;: null,
+            &quot;created_at&quot;: &quot;2022-01-26T01:36:51.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-01-26T01:36:51.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: &quot;b0097d39-55cc-4dd2-8136-4316f214b0fb&quot;,
+            &quot;name&quot;: &quot;MARI&quot;,
+            &quot;sex&quot;: &quot;F&quot;,
+            &quot;age&quot;: 58,
+            &quot;hobby&quot;: &quot;HOBBY&quot;,
+            &quot;birthdate&quot;: &quot;2010-01-05&quot;,
+            &quot;deleted_at&quot;: null,
+            &quot;created_at&quot;: &quot;2022-01-26T01:38:04.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-01-26T01:38:04.000000Z&quot;
+        }
+    ]
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;Developers has been found&quot;,
+    &quot;total&quot;: 10,
+    &quot;nextPageUrl&quot;: null,
+    &quot;content&quot;: [
+        {
+            &quot;id&quot;: &quot;fabe53f6-6cb8-4da3-881a-a9a320fcef0e&quot;,
+            &quot;name&quot;: &quot;Jose 2&quot;,
+            &quot;sex&quot;: &quot;M&quot;,
+            &quot;age&quot;: 20,
+            &quot;hobby&quot;: &quot;jogos eletronicos&quot;,
+            &quot;birthdate&quot;: &quot;2002-01-01&quot;,
+            &quot;deleted_at&quot;: null,
+            &quot;created_at&quot;: &quot;2022-01-24T23:52:00.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-01-24T23:52:00.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: &quot;b9ecfe9a-1a2a-4b59-892e-c32f2669eab6&quot;,
+            &quot;name&quot;: &quot;Jose 2&quot;,
+            &quot;sex&quot;: &quot;M&quot;,
+            &quot;age&quot;: 20,
+            &quot;hobby&quot;: &quot;jogos eletronicos&quot;,
+            &quot;birthdate&quot;: &quot;2002-01-01&quot;,
+            &quot;deleted_at&quot;: null,
+            &quot;created_at&quot;: &quot;2022-01-24T23:52:14.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-01-24T23:52:14.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: &quot;a95302f3-30ff-46bc-a835-559e47ecd470&quot;,
+            &quot;name&quot;: &quot;Jose 2&quot;,
+            &quot;sex&quot;: &quot;M&quot;,
+            &quot;age&quot;: 20,
+            &quot;hobby&quot;: &quot;jogos eletronicos&quot;,
+            &quot;birthdate&quot;: &quot;2002-01-01&quot;,
+            &quot;deleted_at&quot;: null,
+            &quot;created_at&quot;: &quot;2022-01-24T23:52:15.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-01-24T23:52:15.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: &quot;e54fe6bd-55f6-4daf-b24d-833538657222&quot;,
+            &quot;name&quot;: &quot;Jose 2&quot;,
+            &quot;sex&quot;: &quot;M&quot;,
+            &quot;age&quot;: 20,
+            &quot;hobby&quot;: &quot;jogos eletronicos&quot;,
+            &quot;birthdate&quot;: &quot;2002-01-01&quot;,
+            &quot;deleted_at&quot;: null,
+            &quot;created_at&quot;: &quot;2022-01-24T23:52:16.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-01-24T23:52:16.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: &quot;aa1ab60e-b9fd-40c6-b89b-06e231514e50&quot;,
+            &quot;name&quot;: &quot;Jose 2&quot;,
+            &quot;sex&quot;: &quot;M&quot;,
+            &quot;age&quot;: 20,
+            &quot;hobby&quot;: &quot;jogos eletronicos&quot;,
+            &quot;birthdate&quot;: &quot;2002-01-01&quot;,
+            &quot;deleted_at&quot;: null,
+            &quot;created_at&quot;: &quot;2022-01-24T23:52:16.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-01-24T23:52:16.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: &quot;cf03ead2-de18-42fc-8207-8cc11336231b&quot;,
+            &quot;name&quot;: &quot;Jose 2&quot;,
+            &quot;sex&quot;: &quot;M&quot;,
+            &quot;age&quot;: 20,
+            &quot;hobby&quot;: &quot;jogos eletronicos&quot;,
+            &quot;birthdate&quot;: &quot;2002-01-01&quot;,
+            &quot;deleted_at&quot;: null,
+            &quot;created_at&quot;: &quot;2022-01-24T23:52:17.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-01-24T23:52:17.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: &quot;37800a26-bf51-4058-b88e-0b26a236cf01&quot;,
+            &quot;name&quot;: &quot;Jose 2&quot;,
+            &quot;sex&quot;: &quot;M&quot;,
+            &quot;age&quot;: 20,
+            &quot;hobby&quot;: &quot;jogos eletronicos&quot;,
+            &quot;birthdate&quot;: &quot;2002-01-01&quot;,
+            &quot;deleted_at&quot;: null,
+            &quot;created_at&quot;: &quot;2022-01-24T23:52:17.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-01-24T23:52:17.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: &quot;0a9d23f3-d1e8-45b2-a0ab-a7d607152d65&quot;,
+            &quot;name&quot;: &quot;Jose 2&quot;,
+            &quot;sex&quot;: &quot;M&quot;,
+            &quot;age&quot;: 20,
+            &quot;hobby&quot;: &quot;jogos eletronicos&quot;,
+            &quot;birthdate&quot;: &quot;2002-01-01&quot;,
+            &quot;deleted_at&quot;: null,
+            &quot;created_at&quot;: &quot;2022-01-24T23:52:18.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-01-24T23:52:18.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: &quot;59d6aee5-412e-42c0-8a2d-f4a7e0eae4f3&quot;,
+            &quot;name&quot;: &quot;Jose Bruno&quot;,
+            &quot;sex&quot;: &quot;M&quot;,
+            &quot;age&quot;: 25,
+            &quot;hobby&quot;: &quot;Jogos&quot;,
+            &quot;birthdate&quot;: &quot;2022-01-03&quot;,
+            &quot;deleted_at&quot;: null,
+            &quot;created_at&quot;: &quot;2022-01-26T01:30:46.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-01-26T01:30:46.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: &quot;34e88aa7-d7de-4b0a-aa71-1fdac04afe19&quot;,
+            &quot;name&quot;: &quot;JOSE&quot;,
+            &quot;sex&quot;: &quot;M&quot;,
+            &quot;age&quot;: 74,
+            &quot;hobby&quot;: &quot;MORTE&quot;,
+            &quot;birthdate&quot;: &quot;2022-01-11&quot;,
+            &quot;deleted_at&quot;: null,
+            &quot;created_at&quot;: &quot;2022-01-26T01:32:38.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-01-26T01:32:38.000000Z&quot;
+        }
+    ]
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-developers" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-developers"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-developers"></code></pre>
+</span>
+<span id="execution-error-GETapi-developers" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-developers"></code></pre>
+</span>
+<form id="form-GETapi-developers" data-method="GET"
+      data-path="api/developers"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-developers', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-developers"
+                    onclick="tryItOut('GETapi-developers');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-developers"
+                    onclick="cancelTryOut('GETapi-developers');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-developers" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/developers</code></b>
+        </p>
+                        <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+                    <p>
+                <b><code>name</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="name"
+               data-endpoint="GETapi-developers"
+               value=""
+               data-component="query" hidden>
+    <br>
+
+            </p>
+                    <p>
+                <b><code>sex</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="sex"
+               data-endpoint="GETapi-developers"
+               value="F"
+               data-component="query" hidden>
+    <br>
+<p>Must be one of <code>M</code> or <code>F</code>.</p>
+            </p>
+                    <p>
+                <b><code>age</code></b>&nbsp;&nbsp;<small>number</small>     <i>optional</i> &nbsp;
+                <input type="number"
+               name="age"
+               data-endpoint="GETapi-developers"
+               value="345.2"
+               data-component="query" hidden>
+    <br>
+
+            </p>
+                    <p>
+                <b><code>hobby</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="hobby"
+               data-endpoint="GETapi-developers"
+               value=""
+               data-component="query" hidden>
+    <br>
+
+            </p>
+                    <p>
+                <b><code>birthdate</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="birthdate"
+               data-endpoint="GETapi-developers"
+               value=""
+               data-component="query" hidden>
+    <br>
+
+            </p>
+                    <p>
+                <b><code>page</code></b>&nbsp;&nbsp;<small>number</small>     <i>optional</i> &nbsp;
+                <input type="number"
+               name="page"
+               data-endpoint="GETapi-developers"
+               value="33092.669"
+               data-component="query" hidden>
+    <br>
+
+            </p>
+                </form>
+
+            <h2 id="developer-POSTapi-developers">Create a developer.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-developers">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost:4000/api/developers" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"name\": \"aut\",
+    \"sex\": \"F\",
+    \"age\": 7515683.897,
+    \"hobby\": \"dolorem\",
+    \"birthdate\": \"2022-01-26T23:26:16\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:4000/api/developers"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "name": "aut",
+    "sex": "F",
+    "age": 7515683.897,
+    "hobby": "dolorem",
+    "birthdate": "2022-01-26T23:26:16"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-developers">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;Developer has been created&quot;,
+    &quot;content&quot;: {
+        &quot;id&quot;: &quot;70d46289-c56e-480e-b24d-dbbf92d5ffa8&quot;,
+        &quot;name&quot;: &quot;Jose 2&quot;,
+        &quot;sex&quot;: &quot;M&quot;,
+        &quot;age&quot;: 20,
+        &quot;hobby&quot;: &quot;jogos eletronicos&quot;,
+        &quot;birthdate&quot;: &quot;2002-01-01&quot;
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-developers" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-developers"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-developers"></code></pre>
+</span>
+<span id="execution-error-POSTapi-developers" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-developers"></code></pre>
+</span>
+<form id="form-POSTapi-developers" data-method="POST"
+      data-path="api/developers"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-developers', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-developers"
+                    onclick="tryItOut('POSTapi-developers');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-developers"
+                    onclick="cancelTryOut('POSTapi-developers');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-developers" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/developers</code></b>
+        </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>name</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="name"
+               data-endpoint="POSTapi-developers"
+               value="aut"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>sex</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="sex"
+               data-endpoint="POSTapi-developers"
+               value="F"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>M</code> or <code>F</code>.</p>
+        </p>
+                <p>
+            <b><code>age</code></b>&nbsp;&nbsp;<small>number</small>  &nbsp;
+                <input type="number"
+               name="age"
+               data-endpoint="POSTapi-developers"
+               value="7515683.897"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>hobby</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="hobby"
+               data-endpoint="POSTapi-developers"
+               value="dolorem"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>birthdate</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="birthdate"
+               data-endpoint="POSTapi-developers"
+               value="2022-01-26T23:26:16"
+               data-component="body" hidden>
+    <br>
+<p>Must be a valid date.</p>
+        </p>
+        </form>
+
+            <h2 id="developer-GETapi-developers--id-">Show a developer by id.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-developers--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:4000/api/developers/adipisci" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:4000/api/developers/adipisci"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-developers--id-">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;Developer has been found&quot;,
+    &quot;content&quot;: {
+        &quot;id&quot;: &quot;fabe53f6-6cb8-4da3-881a-a9a320fcef0e&quot;,
+        &quot;name&quot;: &quot;Jose 2&quot;,
+        &quot;sex&quot;: &quot;M&quot;,
+        &quot;age&quot;: 20,
+        &quot;hobby&quot;: &quot;jogos eletronicos&quot;,
+        &quot;birthdate&quot;: &quot;2002-01-01&quot;
+    }
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (404):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;error&quot;: &quot;Developer not found&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (400):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;error&quot;: &quot;Uuid invalid&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-developers--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-developers--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-developers--id-"></code></pre>
+</span>
+<span id="execution-error-GETapi-developers--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-developers--id-"></code></pre>
+</span>
+<form id="form-GETapi-developers--id-" data-method="GET"
+      data-path="api/developers/{id}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-developers--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-developers--id-"
+                    onclick="tryItOut('GETapi-developers--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-developers--id-"
+                    onclick="cancelTryOut('GETapi-developers--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-developers--id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/developers/{id}</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>id</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="id"
+               data-endpoint="GETapi-developers--id-"
+               value="adipisci"
+               data-component="url" hidden>
+    <br>
+<p>The ID of the developer.</p>
+            </p>
+                    </form>
+
+            <h2 id="developer-PUTapi-developers--id-">Update a developer by id.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-PUTapi-developers--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request PUT \
+    "http://localhost:4000/api/developers/velit" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"sex\": \"M\",
+    \"age\": 57930725.78,
+    \"birthdate\": \"2022-01-26T23:26:16\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:4000/api/developers/velit"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "sex": "M",
+    "age": 57930725.78,
+    "birthdate": "2022-01-26T23:26:16"
+};
+
+fetch(url, {
+    method: "PUT",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-PUTapi-developers--id-">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;Developer has been updated&quot;,
+    &quot;content&quot;: {
+        &quot;id&quot;: &quot;5977053a-5db7-47bf-99b9-0aeb37dda72f&quot;,
+        &quot;name&quot;: &quot;Jos&eacute; Bruno EDITADO&quot;,
+        &quot;sex&quot;: &quot;M&quot;,
+        &quot;age&quot;: 20,
+        &quot;hobby&quot;: &quot;jogos eletronicos&quot;,
+        &quot;birthdate&quot;: &quot;2021-04-10&quot;
+    }
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (404):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;error&quot;: &quot;Developer not found&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (400):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;error&quot;: &quot;Uuid invalid&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-PUTapi-developers--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-PUTapi-developers--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-PUTapi-developers--id-"></code></pre>
+</span>
+<span id="execution-error-PUTapi-developers--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-PUTapi-developers--id-"></code></pre>
+</span>
+<form id="form-PUTapi-developers--id-" data-method="PUT"
+      data-path="api/developers/{id}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('PUTapi-developers--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-PUTapi-developers--id-"
+                    onclick="tryItOut('PUTapi-developers--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-PUTapi-developers--id-"
+                    onclick="cancelTryOut('PUTapi-developers--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-PUTapi-developers--id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-darkblue">PUT</small>
+            <b><code>api/developers/{id}</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>id</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="id"
+               data-endpoint="PUTapi-developers--id-"
+               value="velit"
+               data-component="url" hidden>
+    <br>
+<p>The ID of the developer.</p>
+            </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>name</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="name"
+               data-endpoint="PUTapi-developers--id-"
+               value=""
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>sex</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="sex"
+               data-endpoint="PUTapi-developers--id-"
+               value="M"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>M</code> or <code>F</code>.</p>
+        </p>
+                <p>
+            <b><code>age</code></b>&nbsp;&nbsp;<small>number</small>     <i>optional</i> &nbsp;
+                <input type="number"
+               name="age"
+               data-endpoint="PUTapi-developers--id-"
+               value="57930725.78"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>hobby</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="hobby"
+               data-endpoint="PUTapi-developers--id-"
+               value=""
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>birthdate</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="birthdate"
+               data-endpoint="PUTapi-developers--id-"
+               value="2022-01-26T23:26:16"
+               data-component="body" hidden>
+    <br>
+<p>Must be a valid date.</p>
+        </p>
+        </form>
+
+            <h2 id="developer-DELETEapi-developers--id-">Create a developer by id.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-DELETEapi-developers--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request DELETE \
+    "http://localhost:4000/api/developers/delectus" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:4000/api/developers/delectus"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-DELETEapi-developers--id-">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;Developer has been deleted&quot;,
+    &quot;content&quot;: true
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (404):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;error&quot;: &quot;Developer not found&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (400):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;error&quot;: &quot;Uuid invalid&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-DELETEapi-developers--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-DELETEapi-developers--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEapi-developers--id-"></code></pre>
+</span>
+<span id="execution-error-DELETEapi-developers--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-DELETEapi-developers--id-"></code></pre>
+</span>
+<form id="form-DELETEapi-developers--id-" data-method="DELETE"
+      data-path="api/developers/{id}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-developers--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-DELETEapi-developers--id-"
+                    onclick="tryItOut('DELETEapi-developers--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-DELETEapi-developers--id-"
+                    onclick="cancelTryOut('DELETEapi-developers--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-DELETEapi-developers--id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-red">DELETE</small>
+            <b><code>api/developers/{id}</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>id</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="id"
+               data-endpoint="DELETEapi-developers--id-"
+               value="delectus"
+               data-component="url" hidden>
+    <br>
+<p>The ID of the developer.</p>
+            </p>
+                    </form>
+
+    
+
+        
+    </div>
+    <div class="dark-box">
+                    <div class="lang-selector">
+                                                        <button type="button" class="lang-button" data-language-name="bash">bash</button>
+                                                        <button type="button" class="lang-button" data-language-name="javascript">javascript</button>
+                            </div>
+            </div>
+</div>
+</body>
+</html>

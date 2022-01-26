@@ -1,0 +1,11 @@
+{
+    "message": "Developer has been updated",
+    "content": {
+        "id": "5977053a-5db7-47bf-99b9-0aeb37dda72f",
+        "name": "José Bruno EDITADO",
+        "sex": "M",
+        "age": 20,
+        "hobby": "jogos eletronicos",
+        "birthdate": "2021-04-10"
+    }
+}

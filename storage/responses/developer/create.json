@@ -1,0 +1,11 @@
+{
+    "message": "Developer has been created",
+    "content": {
+        "id": "70d46289-c56e-480e-b24d-dbbf92d5ffa8",
+        "name": "Jose 2",
+        "sex": "M",
+        "age": 20,
+        "hobby": "jogos eletronicos",
+        "birthdate": "2002-01-01"
+    }
+}

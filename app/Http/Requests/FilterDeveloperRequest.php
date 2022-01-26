@@ -6,6 +6,9 @@ use App\Enum\SexEnum;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
+/**
+ * Query parameters
+ */
 class FilterDeveloperRequest extends FormRequest
 {
     /**
