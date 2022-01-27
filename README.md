@@ -9,7 +9,6 @@ Para clonar o repositório na sua máquina com git, rode o seguinte comando:
 ```
 git clone https://github.com/josebruno2020/developer-api.git
 ```
-Insira as credenciais do github para completar o clone.
 
 ## Configuração do docker
 
@@ -28,7 +27,7 @@ OBS: por padrão estou usando a porta `4000` para o php e a `5434` para o banco 
 
 Para instalar os pacotes e rodar as migrations do projeto, rode o comando:
 ```
-docker exec api php artisan key:generate && docker exec api composer install && docker exec api php artisan migrate
+docker exec api composer install && docker exec api php artisan migrate && docker exec api php artisan key:generate && docker exec api chmod 777 -R storage/*
 ```
 
 #### Pronto, backend está configurado e rodando na porta 4000 (por padrão)!
